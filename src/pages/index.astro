@@ -1,15 +1,26 @@
 ---
+import { Image } from "@astrojs/image/components";
+import RootLayout from "../layouts/RootLayout.astro";
+
+import coverPic from "../assets/cover-pic.jpg";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<RootLayout>
+  <Image
+    src={coverPic}
+    alt="A picture of Akhila Ariyachandra"
+    class="mb-10 rounded-lg"
+    format="webp"
+  />
+
+  <div class="mt-4 space-y-6">
+    <h1
+      class="font-sora text-3xl font-black text-zinc-800 dark:text-zinc-200 sm:text-4xl"
+    >
+      {`Hi, I'm `}
+      <span class="text-emerald-700 dark:text-emerald-600">
+        Akhila Ariyachandra
+      </span>
+    </h1>
+  </div>
+</RootLayout>
