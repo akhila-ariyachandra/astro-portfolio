@@ -1,8 +1,9 @@
 ---
-import { Image } from "@astrojs/image/components";
-import RootLayout from "../layouts/RootLayout.astro";
-
 import coverPic from "../assets/cover-pic.jpg";
+import RootLayout from "../layouts/RootLayout.astro";
+import ProseWrapper from "@/components/ProseWrapper.astro";
+import { Content } from "src/about.md";
+import { Image } from "@astrojs/image/components";
 ---
 
 <RootLayout>
@@ -22,5 +23,9 @@ import coverPic from "../assets/cover-pic.jpg";
         Akhila Ariyachandra
       </span>
     </h1>
+
+    <ProseWrapper>
+      <Content />
+    </ProseWrapper>
   </div>
 </RootLayout>
