@@ -17,6 +17,9 @@ import smartypants from "remark-smartypants";
 import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 
 // https://astro.build/config
+import preact from "@astrojs/preact";
+
+// https://astro.build/config
 export default defineConfig({
   experimental: {
     contentCollections: true,
@@ -38,5 +41,6 @@ export default defineConfig({
         rehypeAccessibleEmojis,
       ],
     }),
+    preact(),
   ],
 });
