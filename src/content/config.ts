@@ -4,14 +4,14 @@ const blog = defineCollection({
   schema: {
     title: z.string(),
     date: z.date(),
-    /* updated: z.date().isOptional(), */
+    updated: z.date().optional(),
     description: z.string(),
-    /* unsplashCredits: z
+    unsplashCredits: z
       .object({
         photographer: z.string(),
-        link: z.string(),
+        link: z.string().url(),
       })
-      .isOptional(), */
+      .optional(),
   },
 });
 

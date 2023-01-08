@@ -1,0 +1,31 @@
+---
+interface Props {
+  path: string;
+  title: string;
+  height: number;
+  width: number;
+}
+
+const { path, width, height, title } = Astro.props;
+
+const aspectRatio = width / height;
+---
+
+<div
+  class="not-prose relative my-4 mx-auto w-full"
+  style={`aspect-ratio: ${aspectRatio}; max-width: ${width}px`}
+>
+  <video
+    autoplay
+    loop
+    muted
+    playsinline
+    width={width}
+    height={height}
+    title={title}
+    class="absolute inset-1/2 -translate-x-1/2 -translate-y-1/2 rounded"
+  >
+    <source src={`${path}.webm`} type="video/webm" />
+    <source src={`${path}.mp4`} type="video/mp4" />
+  </video>
+</div>

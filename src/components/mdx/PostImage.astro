@@ -1,0 +1,39 @@
+---
+import clsx from "classnames";
+import { Image } from "@astrojs/image/components";
+
+interface Props {
+  src: any;
+  alt: string;
+  credit?: {
+    name: string;
+    link: string;
+  };
+}
+
+const { src, alt, credit } = Astro.props;
+---
+
+<div class="not-prose my-5 grid place-items-center">
+  <Image
+    src={src}
+    class={clsx("overflow-hidden", credit ? "rounded-t" : "rounded")}
+    alt={alt}
+  />
+
+  {
+    credit && (
+      <div class="font-sora w-full rounded-b bg-zinc-100 py-1 text-center text-sm dark:bg-zinc-800 sm:text-base">
+        Credit -{" "}
+        <a
+          class="font-semibold text-emerald-800 dark:text-emerald-500"
+          href={credit.link}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {credit.name}
+        </a>
+      </div>
+    )
+  }
+</div>

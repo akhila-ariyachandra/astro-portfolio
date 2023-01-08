@@ -1,0 +1,12 @@
+---
+interface Props {
+  src: string;
+}
+
+const { src } = Astro.props;
+---
+
+<iframe
+  src={src}
+  class="my-4 h-[500px] w-full overflow-hidden rounded"
+  loading="lazy"></iframe>

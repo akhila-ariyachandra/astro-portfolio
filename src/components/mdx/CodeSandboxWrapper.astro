@@ -1,0 +1,20 @@
+---
+interface Props {
+  codeSandboxId: string;
+}
+
+const { codeSandboxId } = Astro.props;
+
+const idWords = codeSandboxId.split("-");
+const title = idWords.slice(0, idWords.length - 1).join("-");
+---
+
+<div class="my-4 h-[500px]">
+  <iframe
+    src={`https://codesandbox.io/embed/${codeSandboxId}?autoresize=1&fontsize=14&hidenavigation=1&theme=dark`}
+    title={title}
+    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+    class="h-[500px] w-full overflow-hidden rounded border-0"
+    loading="lazy"></iframe>
+</div>
