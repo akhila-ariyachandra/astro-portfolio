@@ -1,12 +1,14 @@
 ---
 interface Props {
   src: string;
+  title: string;
 }
 
-const { src } = Astro.props;
+const { src, title } = Astro.props;
 ---
 
 <iframe
   src={src}
   class="my-4 h-[500px] w-full overflow-hidden rounded"
-  loading="lazy"></iframe>
+  loading="lazy"
+  title={title}></iframe>
