@@ -20,7 +20,11 @@ import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 import preact from "@astrojs/preact";
 
 // https://astro.build/config
+import sitemap from "@astrojs/sitemap";
+
+// https://astro.build/config
 export default defineConfig({
+  site: "https://akhilaariyachandra.com",
   experimental: {
     contentCollections: true,
   },
@@ -42,5 +46,6 @@ export default defineConfig({
       ],
     }),
     preact(),
+    sitemap(),
   ],
 });
