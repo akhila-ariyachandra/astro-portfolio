@@ -1,9 +1,12 @@
 ---
+import dayjs from "dayjs";
 import RootLayout from "@/layouts/RootLayout.astro";
 import ProseWrapper from "@/components/ProseWrapper.astro";
 import type { GetStaticPaths } from "astro";
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
+import { formatDate } from "@/utils/helpers";
+import { Image } from "@astrojs/image/components";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const allBlogPosts = await getCollection("blog");
@@ -28,6 +31,62 @@ const { Content } = await entry.render();
 ---
 
 <RootLayout>
+  <Image
+    src={entry.data.banner}
+    alt="Blog post banner"
+    width={1200}
+    height={630}
+    format="webp"
+    class="rounded-lg"
+  />
+
+  {
+    entry.data.unsplashCredits ? (
+      <p class="font-roboto-slab my-2 px-4 text-center text-sm font-medium text-zinc-800 dark:text-zinc-200 sm:text-base">
+        {"Photo by "}
+        <a
+          href={entry.data.unsplashCredits.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-emerald-700 dark:text-emerald-600"
+        >
+          {entry.data.unsplashCredits.photographer}
+        </a>
+      </p>
+    ) : null
+  }
+
+  <h1
+    class="my-4 px-4 text-center font-sora text-3xl font-black text-zinc-800 dark:text-zinc-200 sm:text-4xl"
+  >
+    {entry.data.title}
+  </h1>
+
+  <div
+    class="my-2 flex flex-col items-center px-4 font-roboto-slab text-base font-medium text-zinc-800 dark:text-zinc-200 sm:flex-row sm:justify-center sm:text-lg"
+  >
+    <p>
+      Posted on{" "}
+      <time datetime={dayjs(entry.data.date).toISOString()}>
+        {formatDate(entry.data.date)}
+      </time>
+    </p>
+
+    {
+      entry.data.updated && (
+        <>
+          <span class="hidden sm:mx-2 sm:block">&bull;</span>
+          <p>
+            Last updated on{" "}
+            <time datetime={dayjs(entry.data.updated).toISOString()}>
+              {formatDate(entry.data.updated)}
+            </time>
+          </p>
+        </>
+      )
+    }
+  </div>
+
   <ProseWrapper>
     <Content />
   </ProseWrapper>

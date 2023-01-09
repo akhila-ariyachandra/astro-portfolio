@@ -1,18 +1,39 @@
 ---
-import { getCollection } from "astro:content";
+import dayjs from "dayjs";
 import RootLayout from "../../layouts/RootLayout.astro";
+import { getCollection } from "astro:content";
+import { formatDate } from "@/utils/helpers";
 
 const allBlogPosts = await getCollection("blog");
+const sortedPosts = allBlogPosts.sort((prev, next) =>
+  dayjs(prev.data.date).isBefore(next.data.date) ? 1 : -1
+);
 ---
 
 <RootLayout>
-  <h1>Blog</h1>
+  <h1
+    class="my-10 font-sora text-3xl font-bold text-zinc-800 dark:text-zinc-200 sm:text-4xl"
+  >
+    Blog
+  </h1>
 
-  <ul>
+  <ul class="flex flex-col gap-6">
     {
-      allBlogPosts.map((post) => (
-        <li>
-          <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+      sortedPosts.map((post) => (
+        <li class="space-y-2">
+          <a
+            href={`/blog/${post.slug}`}
+            class="font-sora block text-2xl font-bold text-emerald-700 dark:text-emerald-600 sm:text-3xl"
+          >
+            {post.data.title}
+          </a>
+
+          <time
+            class="font-roboto-slab text-base font-medium text-zinc-800 dark:text-zinc-200 sm:text-lg"
+            datetime={dayjs(post.data.date).toISOString()}
+          >
+            {formatDate(post.data.date)}
+          </time>
         </li>
       ))
     }
