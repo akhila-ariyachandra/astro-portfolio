@@ -2,8 +2,9 @@
 import ThemeToggle from "./ThemeToggle";
 
 const links = [
-  { name: "Home", href: "/" },
-  { name: "Blog", href: "/blog" },
+  { href: "/", title: "Home" },
+  { href: "/blog", title: "Blog" },
+  { href: "/snippets", title: "Snippets" },
 ];
 ---
 
@@ -12,12 +13,12 @@ const links = [
 >
   <nav class="flex flex-row flex-wrap items-center gap-4">
     {
-      links.map(({ name, href }) => (
+      links.map(({ title, href }) => (
         <a
           href={href}
           class="font-sora text-base font-medium text-zinc-800 dark:text-zinc-200 sm:text-lg"
         >
-          {name}
+          {title}
         </a>
       ))
     }

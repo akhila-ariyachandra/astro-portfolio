@@ -1,5 +1,6 @@
 ---
 import Header from "@/components/layout/Header.astro";
+import Footer from "@/components/layout/Footer.astro";
 
 import "@fontsource/sora/variable.css";
 import "@fontsource/roboto-slab/variable.css";
@@ -34,10 +35,12 @@ import "@fontsource/roboto-slab/variable.css";
   </head>
 
   <body
-    class="h-full bg-white antialiased transition-colors duration-200 dark:bg-zinc-900"
+    class="flex h-full flex-col justify-between bg-white antialiased transition-colors duration-200 dark:bg-zinc-900"
   >
     <Header />
 
     <main class="container w-full max-w-3xl p-4"><slot /></main>
+
+    <Footer />
   </body>
 </html>
