@@ -1,6 +1,9 @@
 ---
+import SEO from "@/components/SEO.astro";
 import RootLayout from "@/layouts/RootLayout.astro";
 ---
+
+<SEO title="404" description="Not Found" />
 
 <RootLayout>
   <div>
@@ -14,7 +17,7 @@ import RootLayout from "@/layouts/RootLayout.astro";
       class="font-base font-roboto-slab text-lg text-zinc-800 dark:text-zinc-200"
     >
       You just hit a route that doesn&#39;t exist... the sadness.{" "}
-      <span role="img" aria-label="Sad Emoji"> 😢</span>
+      <span role="img" aria-label="Sad Emoji">😢</span>
     </p>
   </div>
 </RootLayout>

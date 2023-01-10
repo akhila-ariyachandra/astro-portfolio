@@ -1,6 +1,7 @@
 ---
 import dayjs from "dayjs";
-import RootLayout from "../../layouts/RootLayout.astro";
+import SEO from "@/components/SEO.astro";
+import RootLayout from "@/layouts/RootLayout.astro";
 import { getCollection } from "astro:content";
 import { formatDate } from "@/utils/helpers";
 
@@ -9,6 +10,11 @@ const sortedPosts = allBlogPosts.sort((prev, next) =>
   dayjs(prev.data.date).isBefore(next.data.date) ? 1 : -1
 );
 ---
+
+<SEO
+  title="Blog"
+  description="A blog about Javascript, React and Web Development"
+/>
 
 <RootLayout>
   <h1

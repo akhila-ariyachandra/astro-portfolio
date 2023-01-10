@@ -1,0 +1,53 @@
+---
+import { SEO } from "astro-seo";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  date?: Date;
+  updated?: Date;
+}
+
+const {
+  title = "Akhila Ariyachandra",
+  description = "Web Developer",
+  image = "/cover-pic.jpg",
+  date,
+  updated,
+} = Astro.props;
+
+const pathname = Astro.url.pathname;
+const formattedTitle =
+  pathname === "/" ? title : `${title} | Akhila Ariyachandra`;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+const socialImageURL = new URL(image, Astro.url).toString();
+---
+
+<head>
+  <SEO
+    title={formattedTitle}
+    description={description}
+    canonical={canonicalURL}
+    twitter={{
+      card: "summary_large_image",
+      creator: "@heshan_1010",
+      site: Astro.site?.toString(),
+    }}
+    openGraph={{
+      basic: {
+        title: formattedTitle,
+        type: date ? "article" : "website",
+        image: socialImageURL,
+        url: canonicalURL,
+      },
+      article: !!date
+        ? {
+            authors: ["Akhila Ariyachandra"],
+            publishedTime: date.toISOString(),
+            modifiedTime: updated ? updated.toISOString() : undefined,
+          }
+        : undefined,
+    }}
+  />
+</head>
