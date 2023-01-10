@@ -25,7 +25,7 @@ const allSnippets = await getCollection("snippets");
       allSnippets.map((snippet) => (
         <li class="space-y-2">
           <a
-            href={`/blog/${snippet.slug}`}
+            href={`/snippets/${snippet.slug}`}
             class="font-sora text-2xl font-bold text-emerald-700 dark:text-emerald-600 sm:text-3xl"
           >
             {snippet.data.title}
