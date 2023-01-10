@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sora: ["Sora", "sans-serif"],
-        "roboto-slab": ["Roboto Slab", "serif"],
+        "roboto-slab": ['"Roboto Slab"', "serif"],
       },
     },
   },
