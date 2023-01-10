@@ -23,9 +23,6 @@ import preact from "@astrojs/preact";
 import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
-import compress from "astro-compress";
-
-// https://astro.build/config
 import robotsTxt from "astro-robots-txt";
 
 // https://astro.build/config
@@ -53,7 +50,6 @@ export default defineConfig({
     }),
     preact(),
     sitemap(),
-    compress(),
     robotsTxt(),
   ],
 });
