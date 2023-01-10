@@ -16,6 +16,14 @@ const blog = defineCollection({
   },
 });
 
+const snippets = defineCollection({
+  schema: {
+    title: z.string(),
+    description: z.string(),
+  },
+});
+
 export const collections = {
   blog,
+  snippets,
 };

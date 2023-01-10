@@ -1,0 +1,41 @@
+---
+import dayjs from "dayjs";
+import SEO from "@/components/SEO.astro";
+import RootLayout from "@/layouts/RootLayout.astro";
+import { getCollection } from "astro:content";
+
+const allSnippets = await getCollection("snippets");
+---
+
+<SEO
+  title="Code Snippets"
+  description="A few pieces of code I've found useful"
+  image="/snippets-cover.jpg"
+/>
+
+<RootLayout>
+  <h1
+    class="my-10 font-sora text-3xl font-bold text-zinc-800 dark:text-zinc-200 sm:text-4xl"
+  >
+    Code Snippets
+  </h1>
+
+  <ul class="flex flex-col gap-6">
+    {
+      allSnippets.map((snippet) => (
+        <li class="space-y-2">
+          <a
+            href={`/blog/${snippet.slug}`}
+            class="font-sora text-2xl font-bold text-emerald-700 dark:text-emerald-600 sm:text-3xl"
+          >
+            {snippet.data.title}
+          </a>
+
+          <p class="font-roboto-slab text-base font-medium text-zinc-800 dark:text-zinc-200 sm:text-lg">
+            {snippet.data.description}
+          </p>
+        </li>
+      ))
+    }
+  </ul>
+</RootLayout>

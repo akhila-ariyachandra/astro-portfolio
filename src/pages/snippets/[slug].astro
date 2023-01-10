@@ -1,0 +1,53 @@
+---
+import SEO from "@/components/SEO.astro";
+import RootLayout from "@/layouts/RootLayout.astro";
+import ProseWrapper from "@/components/ProseWrapper.astro";
+import type { GetStaticPaths } from "astro";
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const allSnippets = await getCollection("snippets");
+
+  return allSnippets.map((entry) => ({
+    params: {
+      slug: entry.slug,
+    },
+    props: {
+      entry,
+    },
+  }));
+};
+
+interface Props {
+  entry: CollectionEntry<"snippets">;
+}
+
+const { entry } = Astro.props;
+
+const { Content } = await entry.render();
+---
+
+<SEO
+  title={entry.data.title}
+  description={entry.data.description}
+  image="/snippets-cover.jpg"
+/>
+
+<RootLayout>
+  <h1
+    class="my-4 px-4 text-center font-sora text-3xl font-black text-zinc-800 dark:text-zinc-200 sm:text-4xl"
+  >
+    {entry.data.title}
+  </h1>
+
+  <p
+    class="my-2 px-4 text-center font-roboto-slab text-base font-medium text-zinc-800 dark:text-zinc-200 sm:text-lg"
+  >
+    {entry.data.description}
+  </p>
+
+  <ProseWrapper>
+    <Content />
+  </ProseWrapper>
+</RootLayout>

@@ -219,6 +219,36 @@ declare module 'astro:content' {
   data: InferEntrySchema<"blog">
 },
 },
+"snippets": {
+"firebase-authentication-react-hook.mdx": {
+  id: "firebase-authentication-react-hook.mdx",
+  slug: "firebase-authentication-react-hook",
+  body: string,
+  collection: "snippets",
+  data: InferEntrySchema<"snippets">
+},
+"prettier-config.mdx": {
+  id: "prettier-config.mdx",
+  slug: "prettier-config",
+  body: string,
+  collection: "snippets",
+  data: InferEntrySchema<"snippets">
+},
+"prisma-development.mdx": {
+  id: "prisma-development.mdx",
+  slug: "prisma-development",
+  body: string,
+  collection: "snippets",
+  data: InferEntrySchema<"snippets">
+},
+"serverless-pre-rendering.mdx": {
+  id: "serverless-pre-rendering.mdx",
+  slug: "serverless-pre-rendering",
+  body: string,
+  collection: "snippets",
+  data: InferEntrySchema<"snippets">
+},
+},
 
 	};
 
