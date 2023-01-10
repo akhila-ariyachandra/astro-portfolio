@@ -12,6 +12,7 @@ specifiers:
   astro: 1.9.1
   astro-compress: ^1.1.25
   astro-icon: 0.8.0
+  astro-robots-txt: ^0.3.11
   classnames: 2.3.2
   dayjs: 1.11.7
   preact: 10.11.3
@@ -42,6 +43,7 @@ dependencies:
   astro: 1.9.1_sass@1.57.1
   astro-compress: 1.1.25
   astro-icon: 0.8.0
+  astro-robots-txt: 0.3.11
   classnames: 2.3.2
   dayjs: 1.11.7
   preact: 10.11.3
@@ -981,6 +983,14 @@ packages:
       node-fetch: 3.3.0
       resolve-pkg: 2.0.0
       svgo: 2.8.0
+    dev: false
+
+  /astro-robots-txt/0.3.11:
+    resolution: {integrity: sha512-UmIOU6zLusFSPBQjl8vozlfE1fkxLuXDhaT7ZOalsE8Ee4c/ua8OWexcx9Z4d2rZZ8/pywuL28LeG0Sjaq5m3w==}
+    dependencies:
+      deepmerge: 4.2.2
+      valid-filename: 4.0.0
+      zod: 3.20.2
     dev: false
 
   /astro/1.9.1_sass@1.57.1:
@@ -2018,6 +2028,11 @@ packages:
     dependencies:
       node-domexception: 1.0.0
       web-streams-polyfill: 3.2.1
+    dev: false
+
+  /filename-reserved-regex/3.0.0:
+    resolution: {integrity: sha512-hn4cQfU6GOT/7cFHXBqeBg2TbrMBgdD0kcjLhvSQYYwm3s4B6cjvBfb7nBALJLAXqmU5xajSa7X2NnUud/VCdw==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dev: false
 
   /files-pipeline/0.0.2:
@@ -4710,6 +4725,13 @@ packages:
       diff: 5.1.0
       kleur: 4.1.5
       sade: 1.8.1
+    dev: false
+
+  /valid-filename/4.0.0:
+    resolution: {integrity: sha512-VEYTpTVPMgO799f2wI7zWf0x2C54bPX6NAfbZ2Z8kZn76p+3rEYCTYVYzMUcVSMvakxMQTriBf24s3+WeXJtEg==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+    dependencies:
+      filename-reserved-regex: 3.0.0
     dev: false
 
   /vfile-location/4.0.1:
