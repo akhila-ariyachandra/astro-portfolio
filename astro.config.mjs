@@ -26,9 +26,6 @@ import sitemap from "@astrojs/sitemap";
 import compress from "astro-compress";
 
 // https://astro.build/config
-import robotsTxt from "astro-robots-txt";
-
-// https://astro.build/config
 export default defineConfig({
   site: "https://akhilaariyachandra.com",
   experimental: {
@@ -54,6 +51,5 @@ export default defineConfig({
     preact(),
     sitemap(),
     compress(),
-    robotsTxt(),
   ],
 });
