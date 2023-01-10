@@ -23,6 +23,9 @@ import preact from "@astrojs/preact";
 import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
+import compress from "astro-compress";
+
+// https://astro.build/config
 export default defineConfig({
   site: "https://akhilaariyachandra.com",
   experimental: {
@@ -47,5 +50,6 @@ export default defineConfig({
     }),
     preact(),
     sitemap(),
+    compress(),
   ],
 });
