@@ -1,6 +1,6 @@
 ---
 import Header from "@/components/layout/Header.astro";
-import Footer from "@/components/layout/Footer.astro";
+import Footer from "@/components/layout/Footer";
 
 import "@fontsource/sora/400.css";
 import "@fontsource/sora/variable.css";
@@ -59,6 +59,6 @@ import "@fontsource/roboto-slab/variable.css";
 
     <main class="container w-full max-w-3xl p-4"><slot /></main>
 
-    <Footer />
+    <Footer client:visible />
   </body>
 </html>
