@@ -1,17 +1,12 @@
 import type { FunctionComponent } from "preact";
-
-const links = [
-  { href: "/", title: "Home" },
-  { href: "/blog", title: "Blog" },
-  { href: "/snippets", title: "Snippets" },
-];
+import { LINK } from "@/utils/constants";
 
 const Footer: FunctionComponent = () => {
   return (
     <footer className="mt-10 bg-emerald-200 dark:bg-zinc-800">
       <div className="container flex max-w-3xl flex-col space-y-6 px-4 py-6">
         <nav className="grid grid-cols-2 gap-2 sm:grid-cols-3">
-          {links.map((link) => (
+          {LINK.map((link) => (
             <a
               href={link.href}
               className="font-sora text-lg font-medium text-emerald-900 dark:text-zinc-300 sm:text-xl"
