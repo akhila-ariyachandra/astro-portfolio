@@ -48,6 +48,11 @@ const socialImageURL = new URL(image, Astro.url).toString();
             modifiedTime: updated ? updated.toISOString() : undefined,
           }
         : undefined,
+      image: {
+        alt: `${title} cover picture`,
+        width: 1200,
+        height: 630,
+      },
     }}
   />
 </head>
