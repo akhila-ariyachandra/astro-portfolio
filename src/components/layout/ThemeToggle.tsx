@@ -1,6 +1,7 @@
+import type { FunctionComponent } from "preact";
 import { useEffect, useState } from "preact/hooks";
 
-export default function ThemeToggle() {
+const ThemeToggle: FunctionComponent = () => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") ?? "light");
   const [isMounted, setIsMounted] = useState(false);
 
@@ -28,4 +29,6 @@ export default function ThemeToggle() {
   return (
     <button onClick={handleClick}>{theme === "light" ? "🌙" : "🌞"}</button>
   );
-}
+};
+
+export default ThemeToggle;
